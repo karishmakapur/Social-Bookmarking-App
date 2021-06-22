@@ -1,0 +1,26 @@
+Social Bookmarking App
+
+Basic version of thrill.io
+
+Implementation Details
+- MVC and Singleton Design Pattern
+- TDD
+
+Project Specification
+- 5 users and 15 bookmarks
+- User can bookmark 5 items max. Duplicates are allowed.
+- Mark bookmarks as kid friendly by a chief editor.
+- Share kid-friendly bookmarks with partner websites.
+
+Architecture
+- MVC
+	- Model-View-Controller
+	- Very popular for Web applications
+	- View <-> controller <-> model
+	- model holds business logic. 2 layers - service and daos layer.
+		- dao communicates with database. (Data Access Objects).
+		- service layer is the real business logic.
+	- view is a presentation. JSP will represent view.
+	- controller has the servlets. It holds the Java programs.
+	- benefit is the seperation of business logic from presentation layer.
+	
