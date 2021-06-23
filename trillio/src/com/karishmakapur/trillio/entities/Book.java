@@ -2,14 +2,16 @@ package com.karishmakapur.trillio.entities;
 
 import java.util.Arrays;
 
-import com.karishmakapur.trillio.constants.BookGenre;
-import com.karishmakapur.trillio.constants.MovieGenre;
+import org.apache.commons.lang3.StringUtils;
 
-public class Book extends Bookmark {
+import com.karishmakapur.trillio.constants.BookGenre;
+import com.karishmakapur.trillio.partner.Shareable;
+
+public class Book extends Bookmark implements Shareable {
 	private int publicationYear;
 	private String publisher;
 	private String[] authors;
-	private String genre;
+	private BookGenre genre;
 	private double amazonRating;
 
 	public int getPublicationYear() {
@@ -36,11 +38,11 @@ public class Book extends Bookmark {
 		this.authors = authors;
 	}
 
-	public String getGenre() {
+	public BookGenre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(String genre) {
+	public void setGenre(BookGenre genre) {
 		this.genre = genre;
 	}
 
@@ -64,6 +66,21 @@ public class Book extends Bookmark {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String getItemData() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("<item>");
+		builder.append("<type>Book</type>");
+		builder.append("<title>").append(getTitle()).append("</title>");
+		builder.append("<authors>").append(StringUtils.join(authors,",")).append("</authors>");
+		builder.append("<publisher>").append(publisher).append("</publisher>");
+		builder.append("<publicationYear>").append(publicationYear).append("</publicationYear>");
+		builder.append("<genre>").append(genre).append("</genre>");
+		builder.append("<amazonRating>").append(amazonRating).append("</amazonRating>");
+		builder.append("</item");
+		return builder.toString();
 	}
 
 }

@@ -1,13 +1,16 @@
 package com.karishmakapur.trillio.entities;
 
+import com.karishmakapur.trillio.constants.Gender;
+import com.karishmakapur.trillio.constants.UserType;
+
 public class User {
 	private long id;
 	private String email;
 	private String password;
 	private String firstName;
 	private String lastName;
-	private int gender;
-	private String userType;
+	private Gender gender;
+	private UserType userType;
 
 	public long getId() {
 		return id;
@@ -49,20 +52,20 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
-	public String getUserType() {
+	public UserType getUserType() {
 		return userType;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setUserType(UserType userType2) {
+		this.userType = userType2;
 	}
 
 	@Override

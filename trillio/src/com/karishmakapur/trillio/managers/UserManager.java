@@ -1,5 +1,9 @@
 package com.karishmakapur.trillio.managers;
 
+import java.util.List;
+
+import com.karishmakapur.trillio.constants.Gender;
+import com.karishmakapur.trillio.constants.UserType;
 import com.karishmakapur.trillio.daos.UserDao;
 import com.karishmakapur.trillio.entities.User;
 
@@ -18,8 +22,8 @@ public class UserManager {
 		return instance;
 	}
 
-	public User createUser(long id, String email, String password, String firstName, String lastName, int gender,
-			String userType) {
+	public User createUser(long id, String email, String password, String firstName, String lastName, Gender gender,
+			UserType userType) {
 		User user = new User();
 		user.setEmail(email);
 		user.setFirstName(firstName);
@@ -32,7 +36,7 @@ public class UserManager {
 
 	}
 	
-	public User[] getUsers() {
+	public List<User> getUsers() {
 		return dao.getUsers();
 	}
 }
